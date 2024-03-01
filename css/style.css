@@ -55,6 +55,14 @@
   transform: scale(1.1);
 }
 
+.main_ready {
+  transition: 0.3s linear;
+}
+.main_ready:hover {
+  transform: scaleY(1.05);
+  background-position: 70% 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -160,7 +168,6 @@
   .main_ready {
     padding: 80px 5%;
     display: flex;
-    padding: 50px 5%;
     justify-content: center;
     margin: 0 auto;
   }

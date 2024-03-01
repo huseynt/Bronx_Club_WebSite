@@ -76,6 +76,15 @@ $red-hover: #7e0a0a;
 %i-hover {
     transition: 0.3s linear;
     &:hover {
-        transform: scale(1.1)
+        transform: scale(1.1);
+    }
+}
+
+// ---- background hover ----
+%bg-hover {
+    transition: 0.3s linear;
+    &:hover {
+        transform: scaleY(1.05);
+        background-position: 70% 0;
     }
 }

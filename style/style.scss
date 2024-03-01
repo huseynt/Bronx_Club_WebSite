@@ -139,11 +139,11 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        @extend %bg-hover;
 
         @include mobile {
             padding: 80px 5% ;
             display: flex;
-            padding: 50px 5% ;
             justify-content: center;
             margin: 0 auto;
         }
