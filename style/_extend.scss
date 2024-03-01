@@ -1,0 +1,73 @@
+//--------  font family --------
+%font {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+}
+
+//--------  font size --------
+%font_large {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+%font_medium {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+%font_sm {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+%font_small {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+// --- button -----
+%button {
+    padding: 13px 50px;
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    border: none;
+}
+// -------------- hovers ---------------
+
+// ---- button hover ----
+%b-hover {
+    border-radius: 5px;
+    transition: 0.3s linear;
+    &:hover {
+        background-color: $red-hover;
+    }
+}
+
+// ---- photo hover ----
+%p-hover {
+    border-radius: 15px;
+    transition: 0.3s linear;
+    &:hover {
+        filter: grayscale(100%);
+        transform: scale(0.95)
+    }
+}
+
+// ---- icon hover ----
+%i-hover {
+    transition: 0.3s linear;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+// ---- background hover ----
+%bg-hover {
+    transition: 0.3s linear;
+    &:hover {
+        transform: scaleY(1.05);
+        background-position: 70% 0;
+    }
+}
