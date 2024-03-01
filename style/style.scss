@@ -1,0 +1,264 @@
+@import 'varaible';
+@import 'mixin';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @extend %font;
+}
+
+
+//---------------- main ----------------------
+.main {
+
+    // ------- popular section ---------
+    &_popular {
+        padding: 80px 10%;
+
+        @include mobile {
+            padding: 10px 5% 40px;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        // --- head ---
+        &-head {
+            margin: 0 0 70px;
+            @extend %font_large;
+            
+            @include mobile {
+                display: inline-block;
+                margin: 30px 0;
+                font-size: $font_medium-size;
+            }
+        }
+
+        // --- container ---
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(2,auto);
+            grid-template-rows: repeat(2,auto);
+            justify-content: space-between;
+            gap: 40px;
+
+            @include mobile {
+                grid-template-columns: repeat(1,auto);
+                grid-template-rows: repeat(4,1fr);
+                gap: 40px;
+            }
+
+            &-card {
+                max-width: 480px;
+                text-decoration: none;
+                color: $black;
+
+                &-photo {
+    
+                    &-img {
+                        width: 100%;
+                        max-height: 348px;
+                        @extend %p-hover;
+                    }
+                }
+    
+                &-info {
+                    @extend %font_medium;
+                    border-bottom: 1px solid #000;
+                }
+            }
+        }
+
+        //--- down -----
+        &-down {
+            margin: 80px 0 20px;
+            text-align: center;
+
+            &-button {
+                @extend %button;
+                @extend %font_small;
+                @extend %b-hover;
+            }
+        }
+    }
+
+    // ------- classes section ---------
+    &_classes {
+        padding: 50px 10%;
+        background-image: url('../assets/Group-YbxWo93O8RcZ0wn5.avif');
+        background-size: cover;
+        background-position: left;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: end;
+
+        @include mobile {
+            padding: 50px 5% ;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        &-block {
+            padding: 70px 0;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            row-gap: 20px;
+
+            &-head {
+                @extend %font_large;
+                color: #fff;
+            }
+
+            &-info {
+                @extend %font_small;
+                color: #fff;
+            }
+
+            &-paragraph {
+                @extend %font_small;
+                color: #fff;
+            }
+
+            &-button {
+                margin-top: 30px;
+                @extend %font_small;
+                @extend %button;
+                @extend %b-hover;
+            }
+        }
+    }
+
+    // ------- ready section ---------
+    &_ready {
+        padding: 150px 10%;
+        background-image: url('../assets/photo-1526506118085-60ce8714f8c5.avif');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        @include mobile {
+            padding: 80px 5% ;
+            display: flex;
+            padding: 50px 5% ;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        &-block {
+            @include mobile {
+                max-width: 350px;
+            }
+
+
+            &-head {
+                @extend %font_large;
+            }
+    
+            &-button {
+                margin-top: 30px;
+                @extend %font_small;
+                @extend %button;
+                @extend %b-hover;
+    
+                @include mobile {
+                    margin: 20px auto;
+                }
+            }
+        }
+    }
+}
+// ----------- footer -------------
+.footer {
+    padding: 50px 10%;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    background-color: #000;
+
+    @include mobile {
+        padding: 50px 5%;
+        display: grid;
+        grid-template-columns: auto ;
+        justify-content: center;
+        row-gap: 30px;
+    }
+
+    // block left ------
+    &_block {
+        @include mobile {
+            max-width: 350px;
+        }
+
+        &-head {
+            width: 100%;
+            @extend %font_sm;
+            color: $white;
+
+            @include mobile {
+                font-size: $font_medium-size;
+            }
+        }
+
+        &-start {
+            @extend %font_small;
+            color: $white;
+            margin-top: 15px;
+
+            @include mobile {
+                font-size: $font_sm-size;
+            }
+        }
+
+        &-end {
+            @extend %font_small;
+            color: $white;
+
+            @include mobile {
+                font-size: $font_sm-size;
+            }
+        }
+
+        &-list {
+            margin-top: 25px;
+            display: flex;
+            column-gap: 25px;
+
+            &-link {
+                text-decoration: none;
+                @extend %i-hover;
+
+                &-img {
+                    width: 20px;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    // address right ------
+    &_address {
+        
+        
+        &-head {
+            @extend %font_sm;
+            color: $white;
+            
+            @include mobile {
+                font-size: $font_medium-size;
+            }
+        }
+
+        &-paragraph {
+            @extend %font_small;
+            color: $white;
+            margin-top: 15px;
+
+            @include mobile {
+                font-size: $font_sm-size;
+            }
+        }
+    }
+}

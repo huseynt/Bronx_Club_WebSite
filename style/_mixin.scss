@@ -1,0 +1,8 @@
+
+
+// mobile / tablet devices
+@mixin mobile {
+    @media screen and (max-width:991px) {
+        @content
+    }
+}
