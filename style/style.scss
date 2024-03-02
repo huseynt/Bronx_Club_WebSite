@@ -1,4 +1,4 @@
-@import 'varaible';
+@import 'variable';
 @import 'mixin';
 @import 'extend';
 
@@ -9,6 +9,11 @@
     @extend %font;
 }
 
+//-----  zoom out -------
+body {
+    max-width: 1920px;
+    margin: 0 auto;
+}
 
 //---------------- main ----------------------
 .main {

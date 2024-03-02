@@ -1,8 +1,8 @@
-
+@import 'variable';
 
 // mobile / tablet devices
 @mixin mobile {
-    @media screen and (max-width:991px) {
+    @media screen and (max-width:$mobile) {
         @content
     }
 }

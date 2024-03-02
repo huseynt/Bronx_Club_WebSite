@@ -69,6 +69,11 @@
   box-sizing: border-box;
 }
 
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .main_popular {
   padding: 80px 10%;
 }
