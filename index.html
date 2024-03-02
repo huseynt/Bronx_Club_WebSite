@@ -4,19 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bronx Club</title>
+    <!--boxicons link burgermenu-->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <!-- font start -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <!-- font end -->
     <link rel="stylesheet" href="./css/style.css">
+    
 </head>
 <body>
-    
 
+
+    <!-- haeder section -->
+    <header class="header">
+        <a href="" class="logo">Bronx Club</a>
+  
+        <input type="checkbox" id="check" />
+        <label for="check" class="icons">
+          <i class="bx bx-menu" id="menu-icon"></i>
+          <i class="bx bx-x" id="close-icon"></i>
+        </label>
+  
+        <nav class="navbar">
+          <a class="a" href="Classes">Classes</a>
+          <a class="a" href="Personal Workouts">Personal Workouts</a>
+          <a class="a" href="Prices&Plans">Prices&Plans</a>
+          <a class="a" href="Schedule">Schedule</a>
+          <a class="a" href="Sign Up">Sign up</a>
+        </nav>
+      </header>
+  
 
     <!------------------- main ---------------------->
     <main class="main"> 
+
+
+        <!-- up section -->
+        <section class="main_started">
+            <div class="main_started-block">
+                <h1 class="main_started-block-head">IT’S ALL ABOUT WHAT YOU <br />CAN ACHIEVE</h1>
+                <p class="main_started-block-paragraph">Empower yourself to make the changes you need to make</p>
+                <button class="main_started-block-button">Let's Get Started</button>
+            </div>
+        </section>
 
         <!------- popular section --------->
         <section class="main_popular">
@@ -58,6 +93,20 @@
 
             <div class="main_popular-down">
                 <button class="main_popular-down-button">CHECK ALL CLASSES</button>
+            </div>
+        </section>
+
+        <!------- about section --------->
+        <section class="main_about">
+            <div class="main_about-block">
+                <h2 class="main_about-block-head">Classes</h2>
+                
+                <p class="main_about-block-info">We’re not here to carry you to fitness, we’re here to motivate you to carry yourself to your goals. 
+                </p>
+                
+                <p class="main_about-block-paragraph">If you’re not sure what your goals are, or don’t know where to start on your fitness journey, come in and speak to one of our qualified trainers who can help you develop a plan.</p>
+
+                <button class="main_about-block-button">Schedule</button>
             </div>
         </section>
 

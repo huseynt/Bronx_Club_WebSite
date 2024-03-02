@@ -1,9 +1,10 @@
+@charset "UTF-8";
 * {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
 }
 
-.main_ready-block-head, .main_classes-block-head, .main_popular-head {
+.main_ready-block-head, .main_classes-block-head, .main_about-block-head, .main_popular-head {
   font-size: 48px;
   font-weight: 700;
 }
@@ -18,12 +19,12 @@
   font-weight: 700;
 }
 
-.footer_address-paragraph, .footer_block-end, .footer_block-start, .main_ready-block-button, .main_classes-block-button, .main_classes-block-paragraph, .main_classes-block-info, .main_popular-down-button {
+.footer_address-paragraph, .footer_block-end, .footer_block-start, .main_ready-block-button, .main_classes-block-button, .main_classes-block-paragraph, .main_classes-block-info, .main_about-block-button, .main_about-block-paragraph, .main_about-block-info, .main_popular-down-button {
   font-size: 16px;
   font-weight: 500;
 }
 
-.main_ready-block-button, .main_classes-block-button, .main_popular-down-button {
+.main_ready-block-button, .main_classes-block-button, .main_about-block-button, .main_popular-down-button {
   padding: 13px 50px;
   cursor: pointer;
   background-color: red;
@@ -31,11 +32,11 @@
   border: none;
 }
 
-.main_ready-block-button, .main_classes-block-button, .main_popular-down-button {
+.main_ready-block-button, .main_classes-block-button, .main_about-block-button, .main_popular-down-button {
   border-radius: 5px;
   transition: 0.3s linear;
 }
-.main_ready-block-button:hover, .main_classes-block-button:hover, .main_popular-down-button:hover {
+.main_ready-block-button:hover, .main_classes-block-button:hover, .main_about-block-button:hover, .main_popular-down-button:hover {
   background-color: #7e0a0a;
 }
 
@@ -74,6 +75,145 @@ body {
   margin: 0 auto;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.3rem 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 100;
+  /*breakpoints*/
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+.header .logo {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.header .navbar {
+  margin-left: auto; /* diger yazilari sağa getirme */
+}
+.header .navbar .a {
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 100;
+  margin-left: 1rem;
+}
+.header .navbar:hover {
+  color: palegreen; /* Deyişiklik: Hover rengi */
+}
+.header #check { /* checkbox'u menyu iconunun yanina getirmek ucun*/
+  display: none;
+}
+.header .icons {
+  position: relative; /* Deyisiklik */
+  font-size: 2.8rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  margin-left: auto; /* Deyişiklik */
+}
+@media screen and (max-width: 992px) {
+  .header .header {
+    padding: 1.3rem 5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header .icons {
+    display: inline-flex;
+  }
+  .header #check:checked ~ .icons #menu-icon {
+    display: none;
+  }
+  .header #close-icon {
+    display: none;
+  }
+  .header #check:checked ~ .icons #close-icon {
+    display: block;
+  }
+  .header .navbar {
+    /* mobilde menyunu gizlet */
+    position: absolute;
+    top: calc(100% + 0.1rem); /* Deyişiklik nav acildanda headernen arasindaki mesafe */
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+    overflow: hidden;
+  }
+  .header .navbar .a {
+    display: block;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+  }
+  .header .navbar:hover {
+    color: palegreen; /* Deyişiklik: Hover rengi */
+  }
+  .header #check:checked ~ .navbar {
+    height: auto; /* Deyişdim 17.7 rem idi */
+  }
+}
+
+.main_started {
+  background-image: url("../assets/kulturistas-m7oWrM175eu7nJ9O.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.3s linear;
+  /* Yeni eklenen stiller */
+}
+.main_started:hover {
+  background-position: 70% 0;
+  filter: grayscale(100%);
+}
+.main_started-block {
+  text-align: left;
+  width: 100%;
+  padding: 200px 10% 100px;
+}
+.main_started-block-head {
+  color: #fff;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+.main_started-block-paragraph {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.main_started-block-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 90px;
+}
+.main_started-block-button:hover {
+  background-color: red;
+}
 .main_popular {
   padding: 80px 10%;
 }
@@ -125,6 +265,42 @@ body {
 .main_popular-down {
   margin: 80px 0 20px;
   text-align: center;
+}
+.main_about {
+  padding: 50px 10%;
+  background-image: url("../assets/Group-ARqG6b9yLJfJvp17.avif");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: start;
+}
+@media screen and (max-width: 991px) {
+  .main_about {
+    padding: 50px 5%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+.main_about-block {
+  padding: 70px 0;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  row-gap: 20px;
+}
+.main_about-block-head {
+  color: #fff;
+}
+.main_about-block-info {
+  color: #fff;
+}
+.main_about-block-paragraph {
+  color: #fff;
+}
+.main_about-block-button {
+  margin-top: 30px;
 }
 .main_classes {
   padding: 50px 10%;
