@@ -36,6 +36,14 @@
 }
 // -------------- hovers ---------------
 
+// ---- link hover ----
+%l-hover {
+    transition: 0.2s linear;
+    &:hover {
+        color: $l-hover;
+    }
+}
+
 // ---- button hover ----
 %b-hover {
     border-radius: 5px;

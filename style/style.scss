@@ -15,16 +15,46 @@ body {
     margin: 0 auto;
 }
 
-.header {
+//--------- fixed photo ---------
+.fixed_photo {
+    width: 100%;  
     position: fixed;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    @include mobile {
+        display: none;
+    }
+
+    &-img {
+        background-image: url('../assets/kulturistas-m7oWrM175eu7nJ9O.avif');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+        max-width: 1920px;        
+    }
+}
+
+// ------------ header -------------
+.header {
+    position: sticky;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 1.3rem 10%;
+    max-width: 1920px;
+    padding: 20px 10%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     z-index: 100;
+
+    @include mobile {
+        padding: 20px 5%;
+    }
 
     &::before{
         content: "";
@@ -33,151 +63,153 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, .1);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.799), rgba(0, 0, 0, 0.24));
         backdrop-filter: blur(20px);
         z-index: -1;
+
+        @include mobile {
+            background-image: linear-gradient(rgba(23, 23, 23, 0.714), rgb(0, 0, 0));
+        }
     }
 
-    .logo {
+    &_logo {
         font-size: 2rem;
         color: #fff;
         text-decoration: none;
         font-weight: 700;
+        @extend %l-hover;
     }
 
-    .navbar {
-        margin-left: auto; /* diger yazilari sağa getirme */
+    &_checkbox {
+        display: none;
 
-        .a {
+        @include  mobile {    
+            &:checked ~ .icons #menu-icon {
+                display: none;
+            }
+            &:checked ~ .icons #close-icon {
+                display: block;
+            }
+            &:checked ~ .navbar {
+                height: auto;
+            }
+        }
+    }
+
+    &_label {
+        position: relative;
+        font-size: $font_large-size;
+        color: #fff;
+        display: none;
+        margin-left: auto;
+
+        @include  mobile {
+            display: inline-flex;
+        }
+
+        &-close {
+            @include  mobile {
+                display: none;
+            }
+        }
+    }
+
+    &_navbar {
+
+        @include mobile {
+            position: absolute;
+            top: calc(100% + 0.1em);
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: #0000001a;
+            backdrop-filter: blur(20px);
+            transition: .3s ease;
+            overflow: hidden;
+        }
+
+        &-link {
             font-size: 1.10rem;
             color: #fff;
             text-decoration: none;
             font-weight: 100;
             margin-left: 1rem;
-        }
-        &:hover {
-            color:palegreen; /* Deyişiklik: Hover rengi */
-        }
-    }
+            @extend %l-hover;
 
-    #check { /* checkbox'u menyu iconunun yanina getirmek ucun*/
-        display: none;
-    }
-
-    .icons {
-        position: relative; /* Deyisiklik */
-        font-size: 2.8rem;
-        color: #fff;
-        cursor: pointer;
-        display: none;
-        margin-left: auto; /* Deyişiklik */
-    }
-
-    /*breakpoints*/
-    @media screen and (max-width: 992px) {
-        .header {
-            padding: 1.3rem 5%; 
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        .icons {
-            display: inline-flex;
-        }
-
-        #check:checked ~ .icons #menu-icon {
-            display: none;
-        }
-
-        #close-icon {
-            display: none;
-        }
-
-        #check:checked ~ .icons #close-icon {
-            display: block;
-        }
-
-        .navbar {
-            /* mobilde menyunu gizlet */
-            position: absolute;
-            top: calc(100% + 0.1rem); /* Deyişiklik nav acildanda headernen arasindaki mesafe */
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: rgba(0, 0, 0, .1);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-            transition: .3s ease;
-            overflow: hidden;
-
-            .a {
+            @include mobile {
                 display: block;
                 font-size: 1.1rem;
                 margin: 1.5rem 0;
                 text-align: center;
                 transform: translateY(-50px);
             }
-            &:hover {
-                color: palegreen; /* Deyişiklik: Hover rengi */
-            }
-        }
-
-        #check:checked ~ .navbar {
-            height: auto; /* Deyişdim 17.7 rem idi */
         }
     }
+
 }
 //---------------- main ----------------------
 .main {
 
-
-
     // -------- started section ------------
     &_started {
-        background-image: url('../assets/kulturistas-m7oWrM175eu7nJ9O.avif');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        transition: 0.3s linear;
-    
-        &:hover {
-            // transform: scaleY(1.05);
-            background-position: 70% 0;
-            filter: grayscale(100%);
+        padding: 0 10%;
+
+        @include mobile {
+            padding: 80px 5% ;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            background-image: url('../assets/kulturistas-m7oWrM175eu7nJ9O.avif');
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     
-        
-    
-            /* Yeni eklenen stiller */
+
         &-block {
             text-align: left;
             width: 100%;
-            padding: 200px 10% 100px; 
+            padding: 200px 0 100px; 
+
+            @include mobile {
+                max-width: 500px;
+                padding: 100px 0 50px; 
+            }
     
             
             &-head {
-                color: #fff;
-                font-size: 4rem;
+                max-width: 550px;
+                color: $white;
+                font-size: $font_large-size;
                 margin-bottom: 4rem;
+
+                @include mobile {
+                    font-size: $font_large-size;
+                    margin-bottom: 2rem;
+                }
             }
             &-paragraph {
-                color: #fff;
-                font-size: 1rem;
-                font-weight: 300;
+                color: $white;
+                @extend %font_small;
+
+                @include mobile {
+                    max-width: 250px;
+                }
             
             }
             &-button {
                 background-color: red;
-                color: white;
+                color: $white;
                 padding: 10px 20px;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
                 margin-top: 90px;
-    
-                &:hover {
-                    background-color: red;
+                @extend %b-hover;
+
+                @include mobile {
+                    margin-top: 40px;
                 }
             }
             
@@ -187,14 +219,13 @@ body {
     
 
 
-
-
-
     // ------- popular section ---------
     &_popular {
         padding: 80px 10%;
+        background-color: $white;
 
         @include mobile {
+            background-color: #fff;
             padding: 10px 5% 40px;
             display: flex;
             flex-direction: column;
@@ -268,7 +299,7 @@ body {
         padding: 50px 10%;
         background-image: url('../assets/Group-ARqG6b9yLJfJvp17.avif');
         background-size: cover;
-        background-position: left;
+        background-position: right;
         background-repeat: no-repeat;
         display: flex;
         justify-content: start;
@@ -286,6 +317,10 @@ body {
             flex-direction: column;
             align-items: baseline;
             row-gap: 20px;
+
+            @include mobile {
+                max-width: 500px;
+            }
 
             &-head {
                 @extend %font_large;
@@ -336,6 +371,10 @@ body {
             align-items: baseline;
             row-gap: 20px;
 
+            @include mobile {
+                max-width: 500px;
+            }
+
             &-head {
                 @extend %font_large;
                 color: #fff;
@@ -379,7 +418,7 @@ body {
 
         &-block {
             @include mobile {
-                max-width: 350px;
+                max-width: 500px;
             }
 
 
@@ -404,90 +443,97 @@ body {
 // ----------- footer -------------
 .footer {
     padding: 50px 10%;
-    display: grid;
-    grid-template-columns: repeat(2,auto);
     background-color: #000;
 
     @include mobile {
         padding: 50px 5%;
-        display: grid;
-        grid-template-columns: auto ;
+        display: flex;
         justify-content: center;
-        row-gap: 30px;
     }
 
-    // block left ------
+    //----- block-------
     &_block {
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+
         @include mobile {
-            max-width: 350px;
-        }
-
-        &-head {
             width: 100%;
-            @extend %font_sm;
-            color: $white;
-
-            @include mobile {
-                font-size: $font_medium-size;
-            }
+            max-width: 500px;
+            display: grid;
+            grid-template-columns: repeat(1,auto);
+            row-gap: 30px;
         }
 
-        &-start {
-            @extend %font_small;
-            color: $white;
-            margin-top: 15px;
+        // left ------
+        &-left {
 
-            @include mobile {
-                font-size: $font_sm-size;
+            &-head {
+                width: 100%;
+                @extend %font_sm;
+                color: $white;
+                margin-bottom: 20px;
+
+                @include mobile {
+                    font-size: $font_medium-size;
+                }
             }
-        }
 
-        &-end {
-            @extend %font_small;
-            color: $white;
+            &-start {
+                @extend %font_small;
+                color: $white;
 
-            @include mobile {
-                font-size: $font_sm-size;
+                @include mobile {
+                    font-size: $font_sm-size;
+                }
             }
-        }
 
-        &-list {
-            margin-top: 25px;
-            display: flex;
-            column-gap: 25px;
+            &-end {
+                @extend %font_small;
+                color: $white;
 
-            &-link {
-                text-decoration: none;
-                @extend %i-hover;
+                @include mobile {
+                    font-size: $font_sm-size;
+                }
+            }
 
-                &-img {
-                    width: 20px;
-                    color: $white;
+            &-list {
+                margin-top: 25px;
+                display: flex;
+                column-gap: 25px;
+
+                &-link {
+                    text-decoration: none;
+                    @extend %i-hover;
+
+                    &-img {
+                        width: 20px;
+                        color: $white;
+                    }
                 }
             }
         }
-    }
 
-    // address right ------
-    &_address {
-        
-        &-head {
-            @extend %font_sm;
-            color: $white;
-            
-            @include mobile {
-                font-size: $font_medium-size;
+        // address right ------
+        &-address {
+
+            &-head {
+                @extend %font_sm;
+                color: $white;
+                margin-bottom: 20px;
+                
+                @include mobile {
+                    font-size: $font_medium-size;
+                }
             }
-        }
 
-        &-paragraph {
-            @extend %font_small;
-            color: $white;
-            margin-top: 15px;
-            text-decoration: none;
+            &-paragraph {
+                @extend %font_small;
+                color: $white;
+                text-decoration: none;
 
-            @include mobile {
-                font-size: $font_sm-size;
+                @include mobile {
+                    font-size: $font_sm-size;
+                }
             }
         }
     }
